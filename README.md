@@ -1,5 +1,5 @@
 # Automated testing training
- Link to [Nikolay Krotov's Automated testing course](https://vk.com/qakrotov)
+Link to <a href="https://vk.com/qakrotov" target="_blank">Nikolay Krotov's Automated testing course</a>
 
 ---
 
