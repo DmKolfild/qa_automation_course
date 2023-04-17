@@ -4,8 +4,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CalculatorTest {
 
     @BeforeAll
@@ -34,7 +32,7 @@ class CalculatorTest {
     @Tag("sum")
     void sum1 () {
         Calculator calculator = new Calculator();
-        int result = calculator.sum(7, 23);
+        float result = calculator.add(7, 23);
         Assertions.assertEquals(30, result, "Не верный ответ!!!");
     }
 
@@ -44,16 +42,17 @@ class CalculatorTest {
     @Timeout(10)
     void sum2() {
         Calculator calculator = new Calculator();
-        int result = calculator.sum(7, 23);
+        float result = calculator.add(7, 23);
         Assertions.assertEquals(30, result, "Не верный ответ!!!");
     }
 
     @ParameterizedTest(name = "#{index} - сложение {0} и {1}, ожидаем {2}")
     @CsvSource({"1, 2, 3", "-1, 2, 1", "0, 0, 0"})
     @DisplayName("Проверка суммирования 3")
+    @Tag("param")
     void sum3(int a, int b, int expectedResult) {
         Calculator calculator = new Calculator();
-        int result = calculator.sum(a, b);
+        float result = calculator.add(a, b);
         Assertions.assertEquals(expectedResult, result, "Не верный ответ!!!");
     }
 }
