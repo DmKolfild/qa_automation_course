@@ -8,51 +8,65 @@ class CalculatorTest {
 
     @BeforeAll
     public static void beforeAll() {
-        System.out.println("before all");
+        System.out.println("Tests is started");
     }
 
     @BeforeEach
     public void beforeEach() {
-        System.out.println("before each");
+        System.out.println("Test is started");
     }
 
     @AfterAll
     public static void afterAll() {
-        System.out.println("after all");
+        System.out.println("Tests is done");
     }
 
     @AfterEach
     public void afterEach() {
-        System.out.println("after each");
+        System.out.println("Test is done");
     }
 
-    @Test
-    @DisplayName("Проверка суммирования 1")
+    @ParameterizedTest(name = "#{index} - add {0} и {1}, expect {2}")
+    @CsvSource({"1, 3, 4", "-3, -4, -7", "2.5, 5.23, 7.73"})
+    @DisplayName("Checking the add method")
     @Timeout(10)
-    @Tag("sum")
-    void sum1 () {
+    @Tag("add")
+    void add(float firstArg, float secondArg, float expectedResult) {
         Calculator calculator = new Calculator();
-        float result = calculator.add(7, 23);
-        Assertions.assertEquals(30, result, "Не верный ответ!!!");
+        float result = calculator.add(firstArg, secondArg);
+        Assertions.assertEquals(expectedResult, result, "Wrong answer!!!");
     }
 
-    @RepeatedTest(10)
-    @Test
-    @DisplayName("Проверка суммирования 2")
+    @ParameterizedTest(name = "#{index} - sub {0} и {1}, expect {2}")
+    @CsvSource({"10, 3, 7", "-3, -4, 1", "2.5, 5.7, -3.2"})
+    @DisplayName("Checking the sub method")
     @Timeout(10)
-    void sum2() {
+    @Tag("sub")
+    void sub(float firstArg, float secondArg, float expectedResult) {
         Calculator calculator = new Calculator();
-        float result = calculator.add(7, 23);
-        Assertions.assertEquals(30, result, "Не верный ответ!!!");
+        float result = calculator.sub(firstArg, secondArg);
+        Assertions.assertEquals(expectedResult, result, "Wrong answer!!!");
     }
 
-    @ParameterizedTest(name = "#{index} - сложение {0} и {1}, ожидаем {2}")
-    @CsvSource({"1, 2, 3", "-1, 2, 1", "0, 0, 0"})
-    @DisplayName("Проверка суммирования 3")
-    @Tag("param")
-    void sum3(int a, int b, int expectedResult) {
+    @ParameterizedTest(name = "#{index} - mul {0} и {1}, expect {2}")
+    @CsvSource({"4, 3, 12", "-12, -1, 12", "2.5, 3.0, 7.5"})
+    @DisplayName("Checking the mul method")
+    @Timeout(10)
+    @Tag("mul")
+    void mul(float firstArg, float secondArg, float expectedResult) {
         Calculator calculator = new Calculator();
-        float result = calculator.add(a, b);
-        Assertions.assertEquals(expectedResult, result, "Не верный ответ!!!");
+        float result = calculator.mul(firstArg, secondArg);
+        Assertions.assertEquals(expectedResult, result, "Wrong answer!!!");
+    }
+
+    @ParameterizedTest(name = "#{index} - div {0} и {1}, expect {2}")
+    @CsvSource({"8, 2, 4", "1, -4, -0.25", "2.5, 2.5, 1"})
+    @DisplayName("Checking the div method")
+    @Timeout(10)
+    @Tag("div")
+    void div(float firstArg, float secondArg, float expectedResult) {
+        Calculator calculator = new Calculator();
+        float result = calculator.div(firstArg, secondArg);
+        Assertions.assertEquals(expectedResult, result, "Wrong answer!!!");
     }
 }

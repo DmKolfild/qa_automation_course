@@ -6,7 +6,6 @@ public class Calculator {
         float result;
         result = a + b;
         System.out.printf("Сумма %.1f и %.1f равна %.1f\n", a, b, result);
-        System.out.println(a);
         return result;
     }
 
