@@ -24,7 +24,7 @@ public class GoogleSearchTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get("https://www.bing.com/");
+        driver.get("https://www.google.com/");
 
     }
 
