@@ -7,6 +7,7 @@
 4. Click on the first article
 
 Expected result: the title from the 4 step have the same title as in the 3 step
+
 Note: The name of the test case is "newsSimilarHeaders".
 
 ---
@@ -19,4 +20,5 @@ Note: The name of the test case is "newsSimilarHeaders".
 5. Click "Enter"
 
 Expected result: the user received the message "Введите корректный e-mail"
+
 Note: The name of the test case is "signInIncorrectEmail".
