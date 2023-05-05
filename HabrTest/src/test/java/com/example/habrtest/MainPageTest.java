@@ -67,8 +67,8 @@ public class MainPageTest {
         email.sendKeys("123");
         email.submit();
 
-        List<WebElement> massageIncorrectEmail = driver.findElements(By.xpath("//*[contains(text(), \"Введите корректный e-mail\")]"));
-        assertFalse(massageIncorrectEmail.isEmpty(), "Massage 'Введите корректный e-mail' isn't fought");
+        List<WebElement> messageIncorrectEmail = driver.findElements(By.xpath("//*[contains(text(), \"Введите корректный e-mail\")]"));
+        assertFalse(messageIncorrectEmail.isEmpty(), "Message \"Введите корректный e-mail\" isn't fought");
     }
 
 }
