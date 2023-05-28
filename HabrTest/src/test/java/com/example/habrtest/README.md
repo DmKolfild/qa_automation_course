@@ -1,6 +1,6 @@
 # Test case for www.habr.com
 
-### The coincidence of the article title with the preview on the main page
+### The match of the article title with the preview on the main page
 1. Open https://www.habr.com/
 2. Find the news block
 3. Find the first article in this block
