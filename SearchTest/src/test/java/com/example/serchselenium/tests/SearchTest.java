@@ -1,5 +1,7 @@
-package com.example.serchselenium;
+package com.example.serchselenium.tests;
 
+import com.example.serchselenium.pages.MainPage;
+import com.example.serchselenium.pages.ResultsPage;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -28,7 +30,7 @@ public class SearchTest {
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
     }
 
     @AfterEach
@@ -39,46 +41,34 @@ public class SearchTest {
     @ParameterizedTest(name = "#{index} - Find search in {0} ")
     @ValueSource(strings = {"https://www.bing.com/", "https://www.google.com/"})
     @DisplayName("Search availability")
-    public void search(String url) {
+    public void searchFieldTest(String url) {
         driver.get(url);
 
         String input = "Selenium";
-        WebElement searchField = driver.findElement(By.cssSelector("[type='search']"));
-        searchField.sendKeys(input);
-        searchField.submit();
 
-        WebElement searchPageField = driver.findElement(By.cssSelector("[type='search']"));
-        assertEquals(input, searchPageField.getAttribute("value"));
+        MainPage mp = new MainPage(driver);
+        mp.sentText(input);
+
+        ResultsPage rp = new ResultsPage(driver);
+
+        assertEquals(input, rp.getTextFromSearchField(), "The text didn't match");
     }
 
     @Test
     @DisplayName("Relevance of the search results")
-    public void relevanceSearch() {
+    public void relevanceSearchTest() {
         driver.get("https://www.bing.com/");
 
         String input = "Selenium";
-        WebElement searchField = driver.findElement(By.cssSelector("[type='search']"));
-        searchField.sendKeys(input);
-        searchField.submit();
+        MainPage mp = new MainPage(driver);
+        mp.sentText(input);
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(6));
-        wait.until(ExpectedConditions.and(
-                ExpectedConditions.attributeContains(By.cssSelector("h2 > a[href]"), "href", "selenium"),
-                ExpectedConditions.elementToBeClickable(By.cssSelector("h2 > a[href]"))
-        ));
-        List<WebElement> results = driver.findElements(By.cssSelector("h2 > a[href]"));
-        clickElement(results, 0);
-
-        //Switch to window
-        ArrayList<String> tabs = new ArrayList<> (driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        ResultsPage rp = new ResultsPage(driver);
+        rp.clickElement(0);
 
         String url = driver.getCurrentUrl();
 
         assertEquals("https://www.selenium.dev/", url, "Search results are not relevant");
     }
 
-    public void clickElement(List<WebElement> results, int num) {
-        results.get(num).click();
-    }
 }
