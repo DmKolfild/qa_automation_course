@@ -1,4 +1,4 @@
-package com.example.introselenium;
+package com.example.serchselenium;
 
 import org.junit.jupiter.api.*;
 
