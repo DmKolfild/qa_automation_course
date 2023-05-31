@@ -44,8 +44,8 @@ public class SearchTest {
     public void searchFieldTest(String url) {
         driver.get(url);
 
+        // Search result using text
         String input = "Selenium";
-
         MainPage mp = new MainPage(driver);
         mp.sentText(input);
 
@@ -59,10 +59,12 @@ public class SearchTest {
     public void relevanceSearchTest() {
         driver.get("https://www.bing.com/");
 
+        // Search result using text
         String input = "Selenium";
         MainPage mp = new MainPage(driver);
         mp.sentText(input);
 
+        // Open a page
         ResultsPage rp = new ResultsPage(driver);
         rp.clickElement(0);
 

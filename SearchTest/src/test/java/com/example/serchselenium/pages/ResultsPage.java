@@ -27,6 +27,7 @@ public class ResultsPage {
         this.driver = driver;
     }
 
+    // Click on the search result item and open this page
     public void clickElement(int num)  {
         WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(6));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("h2 > a[href]")));
@@ -39,6 +40,7 @@ public class ResultsPage {
         System.out.printf("Click on the %d results: \n",  num);
     }
 
+    // Get text from the search field
     public String getTextFromSearchField() {
         String value = searchField.getAttribute("value");
         System.out.println("Text in the search field: " + value);

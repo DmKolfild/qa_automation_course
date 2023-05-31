@@ -15,6 +15,8 @@ public class MainPage {
     public MainPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
+
+    // Search for entered information
     public void sentText(String text) {
         searchField.sendKeys(text);
         searchField.submit();
