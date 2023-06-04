@@ -12,7 +12,7 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResultsPage {
+public class ResultsPageBing {
 
     private final WebDriver driver;
 
@@ -22,15 +22,16 @@ public class ResultsPage {
     @FindBy(css = "h2 > a[href]")
     private List<WebElement> results;
 
-    public ResultsPage(WebDriver driver) {
+    public ResultsPageBing(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     // Click on the search result item and open this page
     public void clickElement(int num)  {
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(6));
-        wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("h2 > a[href]")));
+        driver.navigate().refresh();
+        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(results.get(num))));
         results.get(num).click();
 
         //Switch to window

@@ -6,13 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 // https://www.bing.com/
-// https://www.google.com/
-public class MainPage {
+public class MainPageBing {
 
     @FindBy(css = "[type='search']")
     private WebElement searchField;
 
-    public MainPage(WebDriver driver) {
+    public MainPageBing(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 

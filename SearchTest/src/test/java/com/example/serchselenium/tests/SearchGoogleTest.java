@@ -1,26 +1,18 @@
 package com.example.serchselenium.tests;
 
-import com.example.serchselenium.pages.MainPage;
-import com.example.serchselenium.pages.ResultsPage;
+import com.example.serchselenium.pages.MainPageGoogle;
+import com.example.serchselenium.pages.ResultsPageGoogle;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.params.provider.ValueSource;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 
-public class SearchTest {
+public class SearchGoogleTest {
     private WebDriver driver;
 
     @BeforeEach
@@ -31,6 +23,7 @@ public class SearchTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+        driver.get("https://www.google.ru/");
     }
 
     @AfterEach
@@ -38,18 +31,15 @@ public class SearchTest {
         driver.quit();
     }
 
-    @ParameterizedTest(name = "#{index} - Find search in {0} ")
-    @ValueSource(strings = {"https://www.bing.com/", "https://www.google.com/"})
+    @Test
     @DisplayName("Search availability")
-    public void searchFieldTest(String url) {
-        driver.get(url);
-
+    public void searchFieldTest() {
         // Search result using text
         String input = "Selenium";
-        MainPage mp = new MainPage(driver);
+        MainPageGoogle mp = new MainPageGoogle(driver);
         mp.sentText(input);
 
-        ResultsPage rp = new ResultsPage(driver);
+        ResultsPageGoogle rp = new ResultsPageGoogle(driver);
 
         assertEquals(input, rp.getTextFromSearchField(), "The text didn't match");
     }
@@ -57,15 +47,13 @@ public class SearchTest {
     @Test
     @DisplayName("Relevance of the search results")
     public void relevanceSearchTest() {
-        driver.get("https://www.bing.com/");
-
         // Search result using text
         String input = "Selenium";
-        MainPage mp = new MainPage(driver);
+        MainPageGoogle mp = new MainPageGoogle(driver);
         mp.sentText(input);
 
         // Open a page
-        ResultsPage rp = new ResultsPage(driver);
+        ResultsPageGoogle rp = new ResultsPageGoogle(driver);
         rp.clickElement(0);
 
         String url = driver.getCurrentUrl();
