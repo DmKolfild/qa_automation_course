@@ -1,7 +1,10 @@
 package com.example.serchselenium.tests;
 
-import com.example.serchselenium.pages.MainPageGoogle;
-import com.example.serchselenium.pages.ResultsPageGoogle;
+import com.example.serchselenium.pages.mainpage.MainPage;
+import com.example.serchselenium.pages.PageFactory;
+import com.example.serchselenium.pages.resultspage.ResultsPage;
+import com.example.serchselenium.pages.resultspage.ResultsPageGoogle;
+import com.example.serchselenium.pages.PagesType;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,10 +39,12 @@ public class SearchGoogleTest {
     public void searchFieldTest() {
         // Search result using text
         String input = "Selenium";
-        MainPageGoogle mp = new MainPageGoogle(driver);
+        PageFactory pf = new PageFactory();
+
+        MainPage mp = pf.createMainPage(PagesType.GOOGLE, driver);
         mp.sentText(input);
 
-        ResultsPageGoogle rp = new ResultsPageGoogle(driver);
+        ResultsPage rp = pf.createResultsPage(PagesType.GOOGLE, driver);
 
         assertEquals(input, rp.getTextFromSearchField(), "The text didn't match");
     }
@@ -49,11 +54,13 @@ public class SearchGoogleTest {
     public void relevanceSearchTest() {
         // Search result using text
         String input = "Selenium";
-        MainPageGoogle mp = new MainPageGoogle(driver);
+        PageFactory pf = new PageFactory();
+
+        MainPage mp = pf.createMainPage(PagesType.GOOGLE, driver);
         mp.sentText(input);
 
         // Open a page
-        ResultsPageGoogle rp = new ResultsPageGoogle(driver);
+        ResultsPage rp = pf.createResultsPage(PagesType.GOOGLE, driver);
         rp.clickElement(0);
 
         String url = driver.getCurrentUrl();

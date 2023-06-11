@@ -1,4 +1,4 @@
-package com.example.serchselenium.pages;
+package com.example.serchselenium.pages.resultspage;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,26 +12,26 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResultsPageBing {
+public class ResultsPageGoogle implements ResultsPage {
 
-    private final WebDriver driver;
+    private WebDriver driver;
 
     @FindBy(css = "[type='search']")
     private WebElement searchField;
 
-    @FindBy(css = "h2 > a[href]")
+    @FindBy(css = "a > h3")
     private List<WebElement> results;
 
-    public ResultsPageBing(WebDriver driver) {
+    public ResultsPageGoogle(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     // Click on the search result item and open this page
+    @Override
     public void clickElement(int num)  {
-        driver.navigate().refresh();
-        WebDriverWait wait = new WebDriverWait(this.driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.refreshed(ExpectedConditions.elementToBeClickable(results.get(num))));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(results.get(num)));
         results.get(num).click();
 
         //Switch to window
@@ -42,6 +42,7 @@ public class ResultsPageBing {
     }
 
     // Get text from the search field
+    @Override
     public String getTextFromSearchField() {
         String value = searchField.getAttribute("value");
         System.out.println("Text in the search field: " + value);

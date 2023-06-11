@@ -1,7 +1,10 @@
 package com.example.serchselenium.tests;
 
-import com.example.serchselenium.pages.MainPageBing;
-import com.example.serchselenium.pages.ResultsPageBing;
+import com.example.serchselenium.pages.mainpage.MainPage;
+import com.example.serchselenium.pages.PageFactory;
+import com.example.serchselenium.pages.PagesType;
+import com.example.serchselenium.pages.resultspage.ResultsPage;
+import com.example.serchselenium.pages.resultspage.ResultsPageBing;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,10 +39,12 @@ public class SearchBingTest {
     public void searchFieldTest() {
         // Search result using text
         String input = "Selenium";
-        MainPageBing mp = new MainPageBing(driver);
+        PageFactory pf = new PageFactory();
+
+        MainPage mp = pf.createMainPage(PagesType.BING, driver);
         mp.sentText(input);
 
-        ResultsPageBing rp = new ResultsPageBing(driver);
+        ResultsPage rp = pf.createResultsPage(PagesType.BING, driver);
 
         assertEquals(input, rp.getTextFromSearchField(), "The text didn't match");
     }
@@ -49,11 +54,13 @@ public class SearchBingTest {
     public void relevanceSearchTest() {
         // Search result using text
         String input = "Selenium";
-        MainPageBing mp = new MainPageBing(driver);
+        PageFactory pf = new PageFactory();
+
+        MainPage mp = pf.createMainPage(PagesType.BING, driver);
         mp.sentText(input);
 
         // Open a page
-        ResultsPageBing rp = new ResultsPageBing(driver);
+        ResultsPage rp = pf.createResultsPage(PagesType.BING, driver);
         rp.clickElement(0);
 
         String url = driver.getCurrentUrl();
