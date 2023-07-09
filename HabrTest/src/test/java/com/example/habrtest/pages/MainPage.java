@@ -17,7 +17,7 @@ public class MainPage {
     @FindBy(css = "#news_block_1 h3")
     private List<WebElement> newsHeader;
 
-    @FindBy(css = "svg[data-test-id='menu-toggle-guest'")
+    @FindBy(css = "svg[data-test-id='menu-toggle-guest']")
     private WebElement iconProfileButtonWithoutAuthorization;
 
     @FindBy(css = "[data-test-id='menu-toggle-user']")
@@ -52,9 +52,6 @@ public class MainPage {
 
     @FindBy(css = "[title=\"Убрать из закладок\"]")
     private List<WebElement> removeBookmarkButtons;
-
-    @FindBy(css = "")
-    private WebElement logo;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;

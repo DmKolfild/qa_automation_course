@@ -2,7 +2,6 @@ package com.example.habrtest.tests;
 
 import com.example.habrtest.MyExtension;
 import com.example.habrtest.pages.MainPage;
-import com.example.habrtest.pages.NewsPage;
 import com.example.habrtest.pages.SearchPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

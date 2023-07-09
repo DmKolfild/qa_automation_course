@@ -34,22 +34,27 @@ public class AuthorizationPage {
     }
 
     public void inputEmail(String email) {
+        LOG.info("Ввод email");
         inputEmail.sendKeys(email);
     }
 
     public void inputPassword(String password) {
+        LOG.info("Ввод паспорта");
         inputPassword.sendKeys(password);
     }
 
     public void clickSubmit() {
+        LOG.info("Клик по кнопке 'Подтвердить'");
         submitButton.click();
     }
 
     public List<WebElement> checkInvaluableMessageAfterEnteringEmail() {
+        LOG.info("Получение сообщения после ввода невалидного email");
         return EmailMessage;
     }
 
     public List<WebElement> checkInvaluableMessageAfterEnteringPassword() {
+        LOG.info("Получение сообщения после ввода невалидного пароля");
         return PasswordMessage;
     }
 }

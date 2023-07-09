@@ -23,6 +23,7 @@ public class BookmarksPage {
     }
 
     public String getTitle(int num) {
+        LOG.info("Получение заголовка статьи");
         return titleArticle.get(num).getText();
     }
 }
