@@ -15,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class NewsTest extends BaseTest {
     private MainPage mainPage;
     private NewsPage newsPage;
-    private AllNewsPage allNewsPage;
 
     @BeforeEach
     @Override

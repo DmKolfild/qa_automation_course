@@ -21,6 +21,7 @@ public class NewsPage {
     }
 
     public String getHeaderNews() {
+        LOG.info("Получение заголовка новости");
         return newsHeader.getText();
     }
 

@@ -29,6 +29,9 @@ public class MainPage {
     @FindBy(xpath = "//*[contains(text(), \"Закладки\")]")
     private WebElement bookmarksPageButton;
 
+    @FindBy(css = "[href='/ru/search/']")
+    private WebElement searchButton;
+
     @FindBy(css = "a[href=\"/ru/news/\"]")
     private WebElement newsButton;
 
@@ -49,6 +52,9 @@ public class MainPage {
 
     @FindBy(css = "[title=\"Убрать из закладок\"]")
     private List<WebElement> removeBookmarkButtons;
+
+    @FindBy(css = "")
+    private WebElement logo;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
@@ -109,6 +115,11 @@ public class MainPage {
     public void clickNextNewsButton() {
         LOG.info("Клик по кнопке 'Показать еще'");
         nextNewsButton.click();
+    }
+
+    public void clickSearchButton () {
+        LOG.info("Клик по кнопке поиска");
+        searchButton.click();
     }
 
     public void clickAllNewsButton() {
