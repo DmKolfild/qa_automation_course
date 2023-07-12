@@ -47,7 +47,7 @@ public class SettingsProfileTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Всплывает окошко alert после успешного сохранения")
+    @DisplayName("Валидность текста alert-уведомления после сохранения")
     public void checkAlertOnTheSettingsProfilePage() {
         settingsProfilePage.clickSaving();
         assertEquals(settingsProfilePage.getMessageFromAlert(), "Настройки обновлены успешно", "Аватар не загружен");

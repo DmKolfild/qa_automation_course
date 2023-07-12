@@ -60,6 +60,12 @@ public class MainPage {
     @FindBy(css = "[title=\"Убрать из закладок\"]")
     private List<WebElement> removeBookmarkButtons;
 
+    @FindBy(css = ".tm-rss-button")
+    private WebElement rssButton;
+
+    @FindBy(css = "[role=\"alert\"]")
+    private WebElement alert;
+
     public MainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
@@ -89,6 +95,11 @@ public class MainPage {
     public void clickNews(int num) {
         LOG.info("Клик по заголовку новости с номером " + num);
         newsHeader.get(num).click();
+    }
+
+    public void clickRss() {
+        LOG.info("Клик по кнопке 'Скопировать ссылку на RSS'");
+        rssButton.click();
     }
 
     public void clickIconProfileWithoutAuthorization() {
@@ -139,6 +150,13 @@ public class MainPage {
     public String getUserName() {
         LOG.info("Получение имени пользователя");
         return userName.getText();
+    }
+
+    public String getMessageFromAlert() {
+        LOG.info("Получение сообщения из всплывающего окошка alert");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOf(alert));
+        return alert.getText();
     }
 
 }
