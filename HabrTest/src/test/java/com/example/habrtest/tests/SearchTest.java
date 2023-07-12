@@ -7,6 +7,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -29,8 +34,9 @@ public class SearchTest extends BaseTest {
     @DisplayName("Поиск по пустой строке")
     public void searchEmpty() {
         mainPage.clickSearchButton();
+
+        searchPage.waitWhenSearchIsVisible();
         String empty = "";
-        // Добавить сюда ожидание, т.к. иначе срабатывает слишком рано получение url
         String primalUrl = getUrlWithoutHash();
         searchPage.search(empty);
         assertEquals(primalUrl, getUrlWithoutHash(), "Осуществился поиск по пустой строке");
@@ -40,6 +46,7 @@ public class SearchTest extends BaseTest {
     @DisplayName("Поиск по невалидному слову (в выдаче нет статей)")
     public void searcUsingInvalidWord() {
         mainPage.clickSearchButton();
+        searchPage.waitWhenSearchIsVisible();
         String invalidWord = "хомяк124$";
         searchPage.search(invalidWord);
         assertFalse(searchPage.getMessage(), "Сообщение не найдено");

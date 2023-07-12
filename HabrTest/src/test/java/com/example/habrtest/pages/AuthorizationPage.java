@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+// https://account.habr.com/login/
 public class AuthorizationPage {
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(AuthorizationPage.class));
     private final WebDriver driver;
@@ -27,6 +28,9 @@ public class AuthorizationPage {
 
     @FindBy(xpath = "//*[contains(text(), \"Введите пароль\")]")
     private List<WebElement> PasswordMessage;
+
+    @FindBy(css = ".socials-buttons a")
+    private List<WebElement> socialButtons;
 
     public AuthorizationPage(WebDriver driver) {
         this.driver = driver;
@@ -57,4 +61,13 @@ public class AuthorizationPage {
         LOG.info("Получение сообщения после ввода невалидного пароля");
         return PasswordMessage;
     }
+
+    public Boolean checkIfSocialButtonIsClickable(int num) {
+        return socialButtons.get(num).isEnabled();
+    }
+
+    public String getNameSocialButton(int num) {
+        return socialButtons.get(num).getAttribute("title");
+    }
+
 }

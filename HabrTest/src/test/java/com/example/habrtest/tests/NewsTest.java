@@ -1,6 +1,7 @@
 package com.example.habrtest.tests;
 
 import com.example.habrtest.MyExtension;
+import com.example.habrtest.pages.AllNewsPage;
 import com.example.habrtest.pages.MainPage;
 import com.example.habrtest.pages.NewsPage;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class NewsTest extends BaseTest {
     private MainPage mainPage;
     private NewsPage newsPage;
+    private AllNewsPage allNewsPage;
 
     @BeforeEach
     @Override
@@ -22,14 +24,25 @@ public class NewsTest extends BaseTest {
         getDriver().get("https://www.habr.com/");
         mainPage = new MainPage(getDriver());
         newsPage = new NewsPage(getDriver());
+        allNewsPage = new AllNewsPage(getDriver());
     }
 
     @Test
-    @DisplayName("Соответсвие превью новости и заголовка на самой странице новости")
-    public void comparePreviewAndHeaderOfNews() {
+    @DisplayName("Соответсвие превью новости c главной страницы и заголовка на странице новости")
+    public void comparePreviewOnTheMainPageAndHeaderOfNews() {
         int numberOfNews = 0;
         String newsHeader = mainPage.getHeaderNews(numberOfNews);
         mainPage.clickNews(numberOfNews);
+        assertEquals(newsHeader, newsPage.getHeaderNews(), "Заголовки не соответствуют");
+    }
+
+    @Test
+    @DisplayName("Соответсвие превью новости cо страницы новостей и заголовка на странице новости")
+    public void comparePreviewOnTheNewsPageAndHeaderOfNews() {
+        int numberOfNews = 0;
+        mainPage.clickNewsButton();
+        String newsHeader = allNewsPage.getHeaderNews(numberOfNews);
+        allNewsPage.clickNews(numberOfNews);
         assertEquals(newsHeader, newsPage.getHeaderNews(), "Заголовки не соответствуют");
     }
 

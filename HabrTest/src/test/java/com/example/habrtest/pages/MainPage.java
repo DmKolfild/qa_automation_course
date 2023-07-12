@@ -1,12 +1,16 @@
 package com.example.habrtest.pages;
 
 import com.example.habrtest.AllureLogger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
 import java.util.List;
 
 //https://habr.com/ru/all/
@@ -14,7 +18,7 @@ public class MainPage {
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(MainPage.class));
     private final WebDriver driver;
 
-    @FindBy(css = "#news_block_1 h3")
+    @FindBy(css = "#news_block_1 h3 a")
     private List<WebElement> newsHeader;
 
     @FindBy(css = "svg[data-test-id='menu-toggle-guest']")
@@ -28,6 +32,9 @@ public class MainPage {
 
     @FindBy(xpath = "//*[contains(text(), \"Закладки\")]")
     private WebElement bookmarksPageButton;
+
+    @FindBy(css = "[href=\"/ru/auth/settings/profile/\"]")
+    private WebElement settingsProfileButton;
 
     @FindBy(css = "[href='/ru/search/']")
     private WebElement searchButton;
@@ -92,6 +99,11 @@ public class MainPage {
     public void clickIconProfile() {
         LOG.info("Клик по иконке профиля");
         iconProfileButton.click();
+    }
+
+    public void clickSettingsProfile() {
+        LOG.info("Клик по настройкам профиля");
+        settingsProfileButton.click();
     }
 
     public void clickBookmarksPageButton() {
