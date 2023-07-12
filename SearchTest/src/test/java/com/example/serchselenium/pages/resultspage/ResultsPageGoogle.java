@@ -23,8 +23,8 @@ public class ResultsPageGoogle implements ResultsPage {
     private List<WebElement> results;
 
     public ResultsPageGoogle(WebDriver driver) {
-        PageFactory.initElements(driver, this);
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     // Click on the search result item and open this page

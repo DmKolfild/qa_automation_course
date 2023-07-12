@@ -17,6 +17,7 @@ import java.time.Duration;
 
 public class SearchBingTest {
     private WebDriver driver;
+    private PageFactory pf;
 
     @BeforeEach
     public void setUp() {
@@ -39,7 +40,7 @@ public class SearchBingTest {
     public void searchFieldTest() {
         // Search result using text
         String input = "Selenium";
-        PageFactory pf = new PageFactory();
+        pf = new PageFactory();
 
         MainPage mp = pf.createMainPage(PagesType.BING, driver);
         mp.sentText(input);
