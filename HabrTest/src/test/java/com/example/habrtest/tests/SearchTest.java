@@ -39,7 +39,7 @@ public class SearchTest extends BaseTest {
 
     @Test
     @DisplayName("Поиск по невалидному слову (в выдаче нет статей)")
-    public void searcUsingInvalidWord() {
+    public void searchUsingInvalidWord() {
         mainPage.clickSearchButton();
         searchPage.waitWhenSearchIsVisible();
         String invalidWord = "хомяк124$";

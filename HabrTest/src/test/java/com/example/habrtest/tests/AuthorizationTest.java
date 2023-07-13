@@ -52,7 +52,7 @@ public class AuthorizationTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Авторизация в учетке")
+    @DisplayName("Авторизация в учётке")
     public void signIn() {
         mainPage.clickIconProfileWithoutAuthorization();
         mainPage.clickSignIn();
@@ -61,7 +61,7 @@ public class AuthorizationTest extends BaseTest {
         authorizationPage.clickSubmit();
         mainPage.clickIconProfile();
         String userName = mainPage.getUserName();
-        assertEquals(userName, AuthorizationCreds.USERNAME.getValue(), "Логин пользователя не соответсвует его учетке");
+        assertEquals(userName, AuthorizationCreds.USERNAME.getValue(), "Логин пользователя не соответствует его учетке");
     }
 
     @ParameterizedTest(name = "#{index} - кликабельность кнопки {0}")

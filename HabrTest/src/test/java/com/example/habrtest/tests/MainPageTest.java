@@ -25,7 +25,7 @@ public class MainPageTest extends BaseTest {
     @DisplayName("Валидность текста alert-уведомления при клике по кнопке 'Скопировать ссылку на RSS'")
     public void checkAlertOnTheMainPage() {
         mainPage.clickRss();
-        assertEquals(mainPage.getMessageFromAlert(), "Ссылка скопирована в буфер обмена", "");
+        assertEquals(mainPage.getMessageFromAlert(), "Ссылка скопирована в буфер обмена", "Сообщение не валидно");
     }
 
 }

@@ -28,7 +28,7 @@ public class NewsTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Соответсвие превью новости c главной страницы и заголовка на странице новости")
+    @DisplayName("Соответствие превью новости c главной страницы и заголовка на странице новости")
     public void comparePreviewOnTheMainPageAndHeaderOfNews() {
         int numberOfNews = 0;
         String newsHeader = mainPage.getHeaderNews(numberOfNews);
@@ -37,7 +37,7 @@ public class NewsTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Соответсвие превью новости cо страницы новостей и заголовка на странице новости")
+    @DisplayName("Соответствие превью новости cо страницы новостей и заголовка на странице новости")
     public void comparePreviewOnTheNewsPageAndHeaderOfNews() {
         int numberOfNews = 0;
         mainPage.clickNewsButton();
@@ -47,7 +47,7 @@ public class NewsTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Кнопка 'Новости' перенарправляет на страницу со всеми новостями")
+    @DisplayName("Кнопка 'Новости' перенаправляет на страницу со всеми новостями")
     public void checkIfUrlOfAllNewsPageIsCorrect() {
         mainPage.clickNewsButton();
         String url = getUrlWithoutHash();

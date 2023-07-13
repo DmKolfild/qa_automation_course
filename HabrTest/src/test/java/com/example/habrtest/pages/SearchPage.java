@@ -29,7 +29,7 @@ public class SearchPage {
     }
 
     public Boolean getMessage() {
-        LOG.infoWithScreenshot("Получение информации с сообщением об отсутвии публикаций");
+        LOG.infoWithScreenshot("Получение информации с сообщением об отсутствии публикаций");
         return message.isEmpty();
     }
 
