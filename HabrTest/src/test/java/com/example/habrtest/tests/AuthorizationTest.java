@@ -30,7 +30,7 @@ public class AuthorizationTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Вывод на экран сообщения \"Введите корректный e-mail\" при вводе некорректного email")
+    @DisplayName("Вывод на экран сообщения \"Введите корректный e-mail\" при вводе невалидного email")
     public void inputInvaluableEmail() {
         mainPage.clickIconProfileWithoutAuthorization();
         mainPage.clickSignIn();

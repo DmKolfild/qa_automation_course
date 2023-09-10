@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9bd766b0-9c23-4256-b99e-5605dacda66c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../SearchTest/src/test/java/com/example/serchselenium/pages/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SearchTest/src/test/java/com/example/serchselenium/pages/ResultsPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SearchTest/reports_example/Test Results - BingSearchTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/../SearchTest/reports_example/Test Results - BingSearchTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SearchTest/src/test/java/com/example/serchselenium/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../SearchTest/src/test/java/com/example/serchselenium/tests/SearchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HabrTest/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../HabrTest/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HabrTest/src/test/java/com/example/habrtest/tests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HabrTest/src/test/java/com/example/habrtest/tests/BaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +28,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
   <component name="ProjectId" id="2OWBFH0jXnLsckCl6l1OgUQJ7IT" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -169,6 +169,7 @@
       <workItem from="1685296559852" duration="894000" />
       <workItem from="1685522082267" duration="105000" />
       <workItem from="1685526802804" duration="622000" />
+      <workItem from="1693645809185" duration="124000" />
     </task>
     <servers />
   </component>
