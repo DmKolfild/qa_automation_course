@@ -12,7 +12,7 @@ public class MainPageGoogle implements MainPage {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(css = "[type='search']")
+    @FindBy(css = "[name='q']")
     private WebElement searchField;
 
     public void sentText(String text) {

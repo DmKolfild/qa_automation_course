@@ -1,6 +1,5 @@
 package com.example.serchselenium.pages.resultspage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,9 +13,9 @@ import java.util.List;
 
 public class ResultsPageGoogle implements ResultsPage {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    @FindBy(css = "[type='search']")
+    @FindBy(css = "[name='q']")
     private WebElement searchField;
 
     @FindBy(css = "a > h3")
@@ -29,16 +28,16 @@ public class ResultsPageGoogle implements ResultsPage {
 
     // Click on the search result item and open this page
     @Override
-    public void clickElement(int num)  {
+    public void clickElement(int num) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(results.get(num)));
         results.get(num).click();
 
         //Switch to window
-        ArrayList<String> tabs = new ArrayList<> (driver.getWindowHandles());
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
 
-        System.out.printf("Click on the %d results: \n",  num);
+        System.out.printf("Click on the %d results: \n", num);
     }
 
     // Get text from the search field
