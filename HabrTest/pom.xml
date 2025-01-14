@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>JetBrainsTest</artifactId>
+    <artifactId>HabrTest</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>JetBrainsTest</name>
 
@@ -90,7 +90,7 @@
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
+                        <version>1.9.22.1</version>
                     </dependency>
                 </dependencies>
             </plugin>
