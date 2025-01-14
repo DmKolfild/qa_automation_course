@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
+
 
 public class MainPageTest {
     private WebDriver driver;
@@ -21,6 +21,7 @@ public class MainPageTest {
         ChromeOptions options = new ChromeOptions();
         // Fix the issue https://github.com/SeleniumHQ/selenium/issues/11750
         options.addArguments("--remote-allow-origins=*");
+        options.setPageLoadStrategy(PageLoadStrategy.EAGER);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
     }
@@ -45,7 +46,7 @@ public class MainPageTest {
     }
 
     @Test
-    public void price() throws InterruptedException {
+    public void price() {
         // Open website
         driver.get("http://suninjuly.github.io/explicit_wait2.html");
 
@@ -73,7 +74,7 @@ public class MainPageTest {
     }
 
     // Function for the calculation
-    public String calculate (String value){
+    public String calculate(String value) {
         return String.valueOf(Math.log(Math.abs(12 * Math.sin(Double.parseDouble(value)))));
     }
 }
