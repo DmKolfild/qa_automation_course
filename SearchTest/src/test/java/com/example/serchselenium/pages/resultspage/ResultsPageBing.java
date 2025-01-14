@@ -1,6 +1,5 @@
 package com.example.serchselenium.pages.resultspage;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,7 +36,7 @@ public class ResultsPageBing implements ResultsPage {
 
         //Switch to window
         ArrayList<String> tabs = new ArrayList<> (driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
+        if (tabs.size() > 1) driver.switchTo().window(tabs.get(1));
 
         System.out.printf("Click on the %d results: \n",  num);
     }
