@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 // https://habr.com/ru/news/<№ news>/
 public class NewsPage {
-    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(NewsPage.class));
+    //private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(NewsPage.class));
     private final WebDriver driver;
 
     @FindBy(css = "h1.tm-title_h1")
@@ -21,7 +21,7 @@ public class NewsPage {
     }
 
     public String getHeaderNews() {
-        LOG.info("Получение заголовка новости");
+        //LOG.info("Получение заголовка новости");
         return newsHeader.getText();
     }
 

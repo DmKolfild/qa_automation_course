@@ -9,6 +9,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import java.util.concurrent.TimeUnit;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MyExtension.class)
@@ -19,9 +21,9 @@ public class NewsTest extends BaseTest {
 
     @BeforeEach
     @Override
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         super.setUp();
-        getDriver().get("https://www.habr.com/");
+        getDriver().get("https://habr.com/ru/feed/");
         mainPage = new MainPage(getDriver());
         newsPage = new NewsPage(getDriver());
         allNewsPage = new AllNewsPage(getDriver());

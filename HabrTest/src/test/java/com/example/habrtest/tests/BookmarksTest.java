@@ -18,14 +18,13 @@ public class BookmarksTest extends BaseTest{
 
     @BeforeEach
     @Override
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         super.setUp();
-        getDriver().get("https://www.habr.com/");
+        getDriver().get("https://habr.com/ru/feed/");
         mainPage = new MainPage(getDriver());
         authorizationPage = new AuthorizationPage(getDriver());
         bookmarksPage = new BookmarksPage(getDriver());
 
-        mainPage.clickIconProfileWithoutAuthorization();
         mainPage.clickSignIn();
         authorizationPage.inputEmail(AuthorizationCreds.EMAIL.getValue());
         authorizationPage.inputPassword(AuthorizationCreds.PASSWORD.getValue());

@@ -21,20 +21,17 @@ public class SettingsProfileTest extends BaseTest {
 
     @BeforeEach
     @Override
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         super.setUp();
-        getDriver().get("https://www.habr.com/");
+        getDriver().get("https://habr.com/ru/feed/");
         mainPage = new MainPage(getDriver());
         authorizationPage = new AuthorizationPage(getDriver());
         settingsProfilePage = new SettingsProfilePage(getDriver());
 
-        mainPage.clickIconProfileWithoutAuthorization();
         mainPage.clickSignIn();
         authorizationPage.inputEmail(AuthorizationCreds.EMAIL.getValue());
         authorizationPage.inputPassword(AuthorizationCreds.PASSWORD.getValue());
         authorizationPage.clickSubmit();
-        mainPage.clickIconProfile();
-        mainPage.clickSettingsProfile();
         mainPage.clickIconProfile();
         mainPage.clickSettingsProfile();
     }

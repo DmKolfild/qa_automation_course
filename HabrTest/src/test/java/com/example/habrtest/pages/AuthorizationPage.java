@@ -8,16 +8,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 // https://account.habr.com/login/
 public class AuthorizationPage {
-    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(AuthorizationPage.class));
+    //private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(AuthorizationPage.class));
     private final WebDriver driver;
 
-    @FindBy(id = "email_field")
+    @FindBy(name = "email")
     private WebElement inputEmail;
 
-    @FindBy(id = "password_field")
+    @FindBy(name = "password")
     private WebElement inputPassword;
 
     @FindBy(css = "[type='submit']")
@@ -29,7 +30,7 @@ public class AuthorizationPage {
     @FindBy(xpath = "//*[contains(text(), \"Введите пароль\")]")
     private List<WebElement> PasswordMessage;
 
-    @FindBy(css = ".socials-buttons a")
+    @FindBy(css = ".socials-buttons__button")
     private List<WebElement> socialButtons;
 
     public AuthorizationPage(WebDriver driver) {
@@ -38,27 +39,28 @@ public class AuthorizationPage {
     }
 
     public void inputEmail(String email) {
-        LOG.info("Ввод email");
+        //LOG.info("Ввод email");
         inputEmail.sendKeys(email);
     }
 
     public void inputPassword(String password) {
-        LOG.info("Ввод паспорта");
+        //LOG.info("Ввод паспорта");
         inputPassword.sendKeys(password);
     }
 
-    public void clickSubmit() {
-        LOG.info("Клик по кнопке 'Подтвердить'");
+    public void clickSubmit() throws InterruptedException {
+        //LOG.info("Клик по кнопке 'Подтвердить'");
         submitButton.click();
+        TimeUnit.SECONDS.sleep(10);;
     }
 
     public List<WebElement> checkInvaluableMessageAfterEnteringEmail() {
-        LOG.info("Получение сообщения после ввода невалидного email");
+        //LOG.info("Получение сообщения после ввода невалидного email");
         return EmailMessage;
     }
 
     public List<WebElement> checkInvaluableMessageAfterEnteringPassword() {
-        LOG.info("Получение сообщения после ввода невалидного пароля");
+        //LOG.info("Получение сообщения после ввода невалидного пароля");
         return PasswordMessage;
     }
 

@@ -18,9 +18,9 @@ public class SearchTest extends BaseTest {
 
     @BeforeEach
     @Override
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         super.setUp();
-        getDriver().get("https://www.habr.com/");
+        getDriver().get("https://habr.com/ru/feed/");
         mainPage = new MainPage(getDriver());
         searchPage = new SearchPage(getDriver());
     }
