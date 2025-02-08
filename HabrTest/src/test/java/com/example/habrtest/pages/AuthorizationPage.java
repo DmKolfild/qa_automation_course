@@ -1,11 +1,9 @@
 package com.example.habrtest.pages;
 
-import com.example.habrtest.AllureLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -51,7 +49,7 @@ public class AuthorizationPage {
     public void clickSubmit() throws InterruptedException {
         //LOG.info("Клик по кнопке 'Подтвердить'");
         submitButton.click();
-        TimeUnit.SECONDS.sleep(10);;
+        TimeUnit.SECONDS.sleep(30);
     }
 
     public List<WebElement> checkInvaluableMessageAfterEnteringEmail() {

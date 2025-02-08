@@ -1,8 +1,6 @@
 package com.example.habrtest.tests;
 
 import com.example.habrtest.MyExtension;
-import com.example.habrtest.pages.MainPage;
-import com.example.habrtest.pages.SearchPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,37 +11,32 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @ExtendWith(MyExtension.class)
 public class SearchTest extends BaseTest {
-    private MainPage mainPage;
-    private SearchPage searchPage;
-
     @BeforeEach
     @Override
     public void setUp() throws InterruptedException {
         super.setUp();
         getDriver().get("https://habr.com/ru/feed/");
-        mainPage = new MainPage(getDriver());
-        searchPage = new SearchPage(getDriver());
     }
 
     @Test
     @DisplayName("Поиск по пустой строке")
     public void searchEmpty() {
-        mainPage.clickSearchButton();
+        getMainPage().clickSearchButton();
 
-        searchPage.waitWhenSearchIsVisible();
+        getSearchPage().waitWhenSearchIsVisible();
         String empty = "";
         String primalUrl = getUrlWithoutHash();
-        searchPage.search(empty);
+        getSearchPage().search(empty);
         assertEquals(primalUrl, getUrlWithoutHash(), "Осуществился поиск по пустой строке");
     }
 
     @Test
     @DisplayName("Поиск по невалидному слову (в выдаче нет статей)")
     public void searchUsingInvalidWord() {
-        mainPage.clickSearchButton();
-        searchPage.waitWhenSearchIsVisible();
+        getMainPage().clickSearchButton();
+        getSearchPage().waitWhenSearchIsVisible();
         String invalidWord = "хомяк124$";
-        searchPage.search(invalidWord);
-        assertFalse(searchPage.getMessage(), "Сообщение не найдено");
+        getSearchPage().search(invalidWord);
+        assertFalse(getSearchPage().getMessage(), "Сообщение не найдено");
     }
 }
