@@ -4,9 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 // https://www.bing.com/
 public class MainPageBing implements MainPage {
+    private final Logger LOG = LoggerFactory.getLogger(MainPageBing.class);
 
     public MainPageBing(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -17,10 +20,10 @@ public class MainPageBing implements MainPage {
 
     // Search for entered information
     public void sentText(String text) {
-        System.out.println("Search for entered information in Bing");
+        LOG.info("Search for entered information in Bing");
         searchField.sendKeys(text);
         searchField.submit();
-        System.out.println("Entered the text: " + text);
+        LOG.info("Entered the text: {}", text);
     }
 
 }

@@ -3,7 +3,6 @@ package com.example.serchselenium.tests;
 import com.example.serchselenium.pages.mainpage.MainPage;
 import com.example.serchselenium.pages.PageFactory;
 import com.example.serchselenium.pages.resultspage.ResultsPage;
-import com.example.serchselenium.pages.resultspage.ResultsPageGoogle;
 import com.example.serchselenium.pages.PagesType;
 import org.junit.jupiter.api.*;
 
@@ -61,7 +60,7 @@ public class SearchGoogleTest {
 
         // Open a page
         ResultsPage rp = pf.createResultsPage(PagesType.GOOGLE, driver);
-        rp.clickElement(0);
+        rp.openThePage(0);
 
         String url = driver.getCurrentUrl();
 

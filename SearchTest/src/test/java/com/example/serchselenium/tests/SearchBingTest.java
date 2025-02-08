@@ -4,7 +4,6 @@ import com.example.serchselenium.pages.mainpage.MainPage;
 import com.example.serchselenium.pages.PageFactory;
 import com.example.serchselenium.pages.PagesType;
 import com.example.serchselenium.pages.resultspage.ResultsPage;
-import com.example.serchselenium.pages.resultspage.ResultsPageBing;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -60,7 +59,7 @@ public class SearchBingTest {
 
         // Open a page
         ResultsPage rp = pf.createResultsPage(PagesType.BING, driver);
-        rp.clickElement(0);
+        rp.openThePage(0);
 
         String url = driver.getCurrentUrl();
 
