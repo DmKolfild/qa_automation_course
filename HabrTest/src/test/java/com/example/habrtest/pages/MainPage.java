@@ -26,43 +26,43 @@ public class MainPage {
     @FindBy(css = "[data-test-id='menu-toggle-user']")
     private WebElement iconProfileButton;
 
-    @FindBy(xpath = "//*[contains(text(), \"Войти\")]")
+    @FindBy(xpath = "//*[contains(text(), 'Войти')]")
     private WebElement signInButton;
 
-    @FindBy(xpath = "//*[contains(text(), \"Закладки\")]")
+    @FindBy(xpath = "//*[contains(text(), 'Закладки')]")
     private WebElement bookmarksPageButton;
 
-    @FindBy(css = "[href=\"/ru/settings/profile/\"]")
+    @FindBy(css = "[href='/ru/settings/profile/']")
     private WebElement settingsProfileButton;
 
     @FindBy(css = "[href='/ru/search/']")
     private WebElement searchButton;
 
-    @FindBy(css = "a[href=\"/ru/news/\"]")
+    @FindBy(css = "a[href='/ru/news/']")
     private WebElement newsButton;
 
-    @FindBy(xpath = "//*[contains(text(), \"Показать еще\")]")
+    @FindBy(xpath = "//*[contains(text(), 'Показать еще')]")
     private WebElement nextNewsButton;
 
-    @FindBy(xpath = "//*[contains(text(), \"Все новости\")]")
+    @FindBy(xpath = "//*[contains(text(), 'Все новости')]")
     private WebElement allNewsButton;
 
-    @FindBy(css = ".tm-user-menu a[class*=\"username\"]")
+    @FindBy(css = ".tm-user-menu a[class*='username']")
     private WebElement userName;
 
     @FindBy(css = "h2 > a")
     private List<WebElement> titleArticle;
 
-    @FindBy(css = "[title=\"Добавить в закладки\"]")
+    @FindBy(css = "[title='Добавить в закладки']")
     private List<WebElement> addBookmarkButtons;
 
-    @FindBy(css = "[title=\"Убрать из закладок\"]")
+    @FindBy(css = "[title='Убрать из закладок']")
     private List<WebElement> removeBookmarkButtons;
 
     @FindBy(css = ".tm-rss-button")
     private WebElement rssButton;
 
-    @FindBy(css = "[role=\"alert\"]")
+    @FindBy(css = "[role='alert']")
     private WebElement alert;
 
     public MainPage(WebDriver driver) {

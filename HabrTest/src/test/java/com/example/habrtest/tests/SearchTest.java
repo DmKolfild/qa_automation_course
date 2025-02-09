@@ -1,5 +1,6 @@
 package com.example.habrtest.tests;
 
+import com.example.habrtest.Helper;
 import com.example.habrtest.MyExtension;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -25,9 +26,9 @@ public class SearchTest extends BaseTest {
 
         getSearchPage().waitWhenSearchIsVisible();
         String empty = "";
-        String primalUrl = getUrlWithoutHash();
+        String primalUrl = Helper.getUrlWithoutHash();
         getSearchPage().search(empty);
-        assertEquals(primalUrl, getUrlWithoutHash(), "Осуществился поиск по пустой строке");
+        assertEquals(primalUrl, Helper.getUrlWithoutHash(), "Осуществился поиск по пустой строке");
     }
 
     @Test

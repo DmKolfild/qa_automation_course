@@ -17,7 +17,7 @@ public class SearchPage {
     private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(SearchPage.class));
     private final WebDriver driver;
 
-    @FindBy(css = "input[placeholder=\"Поиск\"]")
+    @FindBy(css = "input[placeholder='Поиск']")
     private WebElement inputSearch;
 
     @FindBy(xpath = "//*[contains(text(), 'К сожалению, здесь пока нет ни одной публикации')]")

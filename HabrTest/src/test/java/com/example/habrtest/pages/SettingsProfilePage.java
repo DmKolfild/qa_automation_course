@@ -23,10 +23,10 @@ public class SettingsProfilePage {
     @FindBy(css = ".user-avatar img")
     private WebElement avatar;
 
-    @FindBy(css = "[type=\"submit\"]")
+    @FindBy(css = "[type='submit']")
     private WebElement savingButton;
 
-    @FindBy(css = "[role=\"alert\"]")
+    @FindBy(css = "[role='alert']")
     private WebElement alert;
 
     public SettingsProfilePage(WebDriver driver) {

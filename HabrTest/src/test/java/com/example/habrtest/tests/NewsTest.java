@@ -1,5 +1,6 @@
 package com.example.habrtest.tests;
 
+import com.example.habrtest.Helper;
 import com.example.habrtest.MyExtension;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -40,7 +41,7 @@ public class NewsTest extends BaseTest {
     @DisplayName("Кнопка 'Новости' перенаправляет на страницу со всеми новостями")
     public void checkIfUrlOfAllNewsPageIsCorrect() {
         getMainPage().clickNewsButton();
-        String url = getUrlWithoutHash();
+        String url = Helper.getUrlWithoutHash();
         assertEquals("https://habr.com/ru/news/", url, "Url страницы некорректен");
     }
 
@@ -49,7 +50,7 @@ public class NewsTest extends BaseTest {
     public void checkIfRedirectionForAllNewsButtonIsCorrect() {
         getMainPage().clickNextNewsButton();
         getMainPage().clickAllNewsButton();
-        String url = getUrlWithoutHash();
+        String url = Helper.getUrlWithoutHash();
         assertEquals("https://habr.com/ru/news/", url, "Url страницы некорректен");
     }
 

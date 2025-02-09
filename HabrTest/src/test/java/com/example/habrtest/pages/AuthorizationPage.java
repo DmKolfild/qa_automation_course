@@ -24,10 +24,10 @@ public class AuthorizationPage {
     @FindBy(css = "[type='submit']")
     private WebElement submitButton;
 
-    @FindBy(xpath = "//*[contains(text(), \"Введите корректный e-mail\")]")
+    @FindBy(xpath = "//*[contains(text(), 'Введите корректный e-mail')]")
     private List<WebElement> EmailMessage;
 
-    @FindBy(xpath = "//*[contains(text(), \"Введите пароль\")]")
+    @FindBy(xpath = "//*[contains(text(), 'Введите пароль')]")
     private List<WebElement> PasswordMessage;
 
     @FindBy(css = ".socials-buttons__button")
