@@ -11,7 +11,7 @@ import java.util.List;
 
 // https://habr.com/en/users/<user name>/bookmarks/publications/
 public class BookmarksPage {
-    //private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(BookmarksPage.class));
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(BookmarksPage.class));
     private final WebDriver driver;
 
     @FindBy(css = "h2 > a")
@@ -23,7 +23,7 @@ public class BookmarksPage {
     }
 
     public String getTitle(int num) {
-        //LOG.info("Получение заголовка статьи");
+        LOG.info("Получение заголовка статьи");
         return titleArticle.get(num).getText();
     }
 }

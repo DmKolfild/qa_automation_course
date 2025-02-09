@@ -14,7 +14,7 @@ import java.util.List;
 
 // https://habr.com/ru/search/?<поисковая информация>
 public class SearchPage {
-    //private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(SearchPage.class));
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(SearchPage.class));
     private final WebDriver driver;
 
     @FindBy(css = "input[placeholder=\"Поиск\"]")
@@ -29,12 +29,12 @@ public class SearchPage {
     }
 
     public Boolean getMessage() {
-        //LOG.infoWithScreenshot("Получение информации с сообщением об отсутствии публикаций");
+        LOG.infoWithScreenshot("Получение информации с сообщением об отсутствии публикаций");
         return message.isEmpty();
     }
 
     public void search(String text) {
-        //LOG.info("Поиск по полученному тексту");
+        LOG.info("Поиск по полученному тексту");
         inputSearch.click();
         inputSearch.sendKeys(text);
         inputSearch.submit();

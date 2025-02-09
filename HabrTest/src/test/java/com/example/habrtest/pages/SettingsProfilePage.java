@@ -14,7 +14,7 @@ import java.time.Duration;
 
 // https://habr.com/ru/auth/settings/profile/
 public class SettingsProfilePage {
-    //private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(SettingsProfilePage.class));
+    private final AllureLogger LOG = new AllureLogger(LoggerFactory.getLogger(SettingsProfilePage.class));
     private final WebDriver driver;
 
     @FindBy(css = "[accept='image/*']")
@@ -42,17 +42,17 @@ public class SettingsProfilePage {
     }
 
     public Boolean checkIfAvatarIsVisible() {
-        //LOG.infoWithScreenshot("Проверка, что аватар загружен");
+        LOG.infoWithScreenshot("Проверка, что аватар загружен");
         return avatar.isDisplayed();
     }
 
     public void clickSaving() {
-        //LOG.info("Клик по кнопке 'Сохранить изменения'");
+        LOG.info("Клик по кнопке 'Сохранить изменения'");
         savingButton.click();
     }
 
     public String getMessageFromAlert() {
-        //LOG.info("Получение сообщения из всплывающего окошка alert");
+        LOG.info("Получение сообщения из всплывающего окошка alert");
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(alert));
         return alert.getText();
