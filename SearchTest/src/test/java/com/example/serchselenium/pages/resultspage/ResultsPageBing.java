@@ -21,7 +21,7 @@ public class ResultsPageBing implements ResultsPage {
     @FindBy(css = "[type='search']")
     private WebElement searchField;
 
-    @FindBy(css = ".b_gwaTitle a[href]")
+    @FindBy(css = "h2 a[href]")
     private List<WebElement> results;
 
     public ResultsPageBing(WebDriver driver) {
