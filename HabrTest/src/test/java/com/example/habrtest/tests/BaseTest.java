@@ -34,15 +34,6 @@ public class BaseTest {
         driver = new ChromeDriver(options);
     }
 
-    public static String getUrlWithoutHash() {
-        String url = driver.getCurrentUrl();
-        assert url != null;
-        int endIndex = url.length();
-        if (url.contains("#"))
-            endIndex = url.indexOf("#");
-        return driver.getCurrentUrl().substring(0, endIndex);
-    }
-
     public BookmarksPage getBookmarksPage() {
         return new BookmarksPage(getDriver());
     }
